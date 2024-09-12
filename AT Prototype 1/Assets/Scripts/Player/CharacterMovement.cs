@@ -44,7 +44,9 @@ public class CharacterMovement : MonoBehaviour
 
     public void ApplyMovement()
     {
+        //applies gravity for jump
         MoveCalc.y = velocity;
+        //Movement
         controller.Move(MoveCalc * speed * Time.deltaTime);
     }
 
@@ -72,19 +74,18 @@ public class CharacterMovement : MonoBehaviour
         //isGrounded = true;
     }
 
-    //public void OnJump(InputAction.CallbackContext context)
+    
     public void OnJump(InputValue input)
 
     {
-        Debug.Log("HIT");
+        //Debug.Log("HIT");
         //if (!context.started) return;
         if (!controller.isGrounded) return;
         velocity = jumppower;
-        Debug.Log("end");
+        //Debug.Log("end");
 
 
-        //rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-        //isGrounded = false;
+        
 
 
 
