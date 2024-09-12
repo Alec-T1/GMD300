@@ -362,6 +362,7 @@
 "Assets/Scripts/Camera/Camera Management.cs"
 "Assets/Scripts/Game Manager/GameManager.cs"
 "Assets/Scripts/Gem/Gem Script.cs"
+"Assets/Scripts/Gem/GemUIUpdate.cs"
 "Assets/Scripts/Kill Plane/KillPlane.cs"
 "Assets/Scripts/Player/CharacterMovement.cs"
 -langversion:9.0

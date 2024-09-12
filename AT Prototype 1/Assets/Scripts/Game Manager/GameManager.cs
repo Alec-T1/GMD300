@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Gems = GameObject.FindGameObjectsWithTag("Gem").Length;
     }
 
     // Update is called once per frame
@@ -23,5 +23,15 @@ public class GameManager : MonoBehaviour
     {
         GemsCollected++;
         Debug.Log(GemsCollected);
+    }
+
+    public int returnTotalGems()
+    {
+        return Gems;
+    }
+
+    public int returnGemsCollected()
+    {
+        return GemsCollected;
     }
 }
