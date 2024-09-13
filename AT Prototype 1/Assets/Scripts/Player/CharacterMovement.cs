@@ -7,47 +7,60 @@ public class CharacterMovement : MonoBehaviour
 {
 
     CharacterController controller;
-    Vector2 inputValue = Vector2.zero;
+    Vector2 AbsoluteMoveInput = Vector2.zero;
+    Vector3 RelativeMoveInput = Vector3.zero;
     Vector3 MoveCalc = Vector3.zero;
+    Vector3 HorizontalMoveCalc = Vector3.zero;
+    Vector3 FinalMovement = Vector3.zero;
     public float speed;
 
     bool Grounded=false;
     public float gravity = -9.81f;
-    public float gravitymultiplier = 3.0f;
+    public float gravitymultiplier = 3;
     float velocity;
 
-    public float jumppower = 4;
+    public float JumpPower = 4;
     
     
 
     void Awake()
     {
-       controller = GetComponent<CharacterController>();
+       Initialize();
 
     }
 
+    void Initialize()
+    {
+        controller = GetComponent<CharacterController>();
+    }
 
+    /// Variables Initialized
+    /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Active Code
 
     private void Update()
     {
-        
+        Debug.DrawRay(transform.position, new Vector3(AbsoluteMoveInput.x, 0, AbsoluteMoveInput.y), Color.red);
+        Debug.DrawRay(transform.position, RelativeMoveInput, Color.blue);
         ApplyGravity();
-       ApplyMovement();
+        ApplyMovement();
         
 
     }
 
-    private void FixedUpdate()
+
+    private void ProcessHorizontalVelocity()
     {
-        
+        HorizontalMoveCalc = new Vector3(RelativeMoveInput.x, 0, RelativeMoveInput.y);
+        //HorizontalMoveCalc = Vector3.Lerp(HorizontalMoveCalc, MoveCalc, Time.deltaTime);
     }
-
     public void ApplyMovement()
     {
+        FinalMovement = new Vector3(MoveCalc.x, MoveCalc.y, MoveCalc.z);
         //applies gravity for jump
         MoveCalc.y = velocity;
         //Movement
-        controller.Move(MoveCalc * speed * Time.deltaTime);
+        controller.Move(FinalMovement * speed * Time.deltaTime);
     }
 
     public void ApplyGravity()
@@ -63,32 +76,30 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    void OnMovement(InputValue input){
-        //Debug.Log(input.Get<Vector2>() * Time.deltaTime);
-        inputValue = input.Get<Vector2>();
-        MoveCalc = new Vector3(inputValue.x, MoveCalc.y, inputValue.y);
-    }
-
-    void OnCollisionStay()
+    void OnMovement(InputValue input)
     {
-        //isGrounded = true;
-    }
-
-    
-    public void OnJump(InputValue input)
-
-    {
-        //Debug.Log("HIT");
-        //if (!context.started) return;
-        if (!controller.isGrounded) return;
-        velocity = jumppower;
-        //Debug.Log("end");
-
-
+        //Raw Input
+        AbsoluteMoveInput = input.Get<Vector2>();
+        //Converted to Local Space
+        RelativeMoveInput = Camera.main.transform.TransformDirection(new Vector3(AbsoluteMoveInput.x, 0, AbsoluteMoveInput.y));
+        RelativeMoveInput = RelativeMoveInput.normalized;
+        //Chucked into MoveCalc for Final Game Movement
+        MoveCalc = new Vector3(RelativeMoveInput.x, MoveCalc.y, RelativeMoveInput.z);
         
+        //FIGURE OUT HOW TO LERP ONLY HORIZONTALS
+        //MoveCalc = Vector3.Lerp(MoveCalc, new Vector3(AbsoluteMoveInput.x, MoveCalc.y, AbsoluteMoveInput.y), Time.deltaTime);
+        //MoveCalc = new Vector3(AbsoluteMoveInput.x, MoveCalc.y, AbsoluteMoveInput.y);
+    }
 
 
-
+    /// <summary>
+    /// On Jump Executes When the Jump Button is Pressed 
+    /// </summary>
+    /// Makes the Velocity equal to that of the predetermined Jump Power.
+    public void OnJump(InputValue input)
+    {
+        if (!controller.isGrounded) return;
+        velocity = JumpPower;
     }
 
 
