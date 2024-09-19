@@ -14,7 +14,7 @@ public class GemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        RotateGem();
     }
 
     void OnTriggerEnter(Collider other)
@@ -23,9 +23,14 @@ public class GemScript : MonoBehaviour
         {
             //
             GameController = GameObject.FindGameObjectWithTag("GameController");
-            //Debug.Log(GameController.name);
+            Debug.Log("collided");
             GameController.GetComponent<GameManager>().GemCollect();
             Destroy(this.gameObject);
         }
+    }
+
+    void RotateGem()
+    {
+        this.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x,this.transform.eulerAngles.y ,this.transform.eulerAngles.z+.2f);
     }
 }
