@@ -367,6 +367,7 @@
 "Assets/Scripts/Gem/GemUIUpdate.cs"
 "Assets/Scripts/Kill Plane/KillPlane.cs"
 "Assets/Scripts/Player/CharacterMovement.cs"
+"Assets/Scripts/Sound Manager/SoundManager.cs"
 -langversion:9.0
 /deterministic
 /optimize+

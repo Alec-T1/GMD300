@@ -6,7 +6,9 @@ public class GemScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject GameController;
-    void Start()
+    private GameObject SoundController;
+
+    void Awake()
     {
         
     }
@@ -15,6 +17,7 @@ public class GemScript : MonoBehaviour
     void Update()
     {
         RotateGem();
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -22,9 +25,12 @@ public class GemScript : MonoBehaviour
         if (other.tag == "Player")
         {
             //
+            
             GameController = GameObject.FindGameObjectWithTag("GameController");
+            SoundController = GameObject.FindGameObjectWithTag("SoundController");
             Debug.Log("collided");
             GameController.GetComponent<GameManager>().GemCollect();
+            SoundController.GetComponent<SoundManager>().GemCollect();
             Destroy(this.gameObject);
         }
     }
