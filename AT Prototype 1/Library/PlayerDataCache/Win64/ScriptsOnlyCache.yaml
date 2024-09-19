@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - GemScript
     - GemUIUpdate
     - KillPlane
+    - SoundManager
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineComposer
@@ -21,7 +22,6 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
     Unity.ProBuilder.Editor.dll:
     - UnityEditor.ProBuilder.ProBuilderEditor
-    - UnityEditor.ProBuilder.ProBuilderShapeEditor
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.TestRunner.dll:
@@ -86,6 +86,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -119,15 +123,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6256}
     - Class: 114
-      Script: {instanceID: 6538}
+      Script: {instanceID: 6302}
     - Class: 114
-      Script: {instanceID: 6604}
+      Script: {instanceID: 6540}
     - Class: 114
-      Script: {instanceID: 6640}
+      Script: {instanceID: 6606}
     - Class: 114
-      Script: {instanceID: 6672}
+      Script: {instanceID: 6642}
     - Class: 114
-      Script: {instanceID: 7256}
+      Script: {instanceID: 6674}
+    - Class: 114
+      Script: {instanceID: 7258}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1039,6 +1045,12 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
+      Hash: 1b5d83d68ec0f1a7b85b47bf707c83f9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SoundManager
+  - hash:
+      serializedVersion: 2
       Hash: 2071f7ac454ae14eafecfd4041edae3a
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem.Editor
@@ -1538,4 +1550,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/marct/Desktop/Build Hold/AT Prototype 1.exe
+  playerPath: C:/Users/aTurgeon/Desktop/AT Build/AT Prototype 1.exe

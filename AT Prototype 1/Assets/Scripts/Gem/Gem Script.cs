@@ -16,8 +16,13 @@ public class GemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateGem();
         
+        
+    }
+
+    private void FixedUpdate()
+    {
+        RotateGem();
     }
 
     void OnTriggerEnter(Collider other)
@@ -37,6 +42,6 @@ public class GemScript : MonoBehaviour
 
     void RotateGem()
     {
-        this.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x,this.transform.eulerAngles.y ,this.transform.eulerAngles.z+.2f);
+        this.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x,this.transform.eulerAngles.y ,this.transform.eulerAngles.z+1f);
     }
 }

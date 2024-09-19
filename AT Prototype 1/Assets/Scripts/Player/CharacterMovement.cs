@@ -56,11 +56,16 @@ public class CharacterMovement : MonoBehaviour
     }
     public void ApplyMovement()
     {
-        FinalMovement = new Vector3(MoveCalc.x, MoveCalc.y, MoveCalc.z);
+        //FinalMovement = new Vector3(MoveCalc.x, MoveCalc.y, MoveCalc.z);
         //applies gravity for jump
-        MoveCalc.y = velocity;
+        RelativeMoveInput.y = velocity;
+
+
+
+        RelativeMoveInput = RelativeMoveInput.normalized * RelativeMoveInput.magnitude;
+        Debug.Log(RelativeMoveInput);
         //Movement
-        controller.Move(FinalMovement * speed * Time.deltaTime);
+        controller.Move(RelativeMoveInput * speed * Time.deltaTime);
     }
 
     public void ApplyGravity()
@@ -81,20 +86,19 @@ public class CharacterMovement : MonoBehaviour
         //Raw Input
         AbsoluteMoveInput = input.Get<Vector2>();
         //Converted to Local Space
-        RelativeMoveInput = Camera.main.transform.TransformDirection(new Vector3(AbsoluteMoveInput.x, 0, AbsoluteMoveInput.y));
-        RelativeMoveInput = RelativeMoveInput.normalized;
+        MoveCalc = new Vector3(AbsoluteMoveInput.x, 0, AbsoluteMoveInput.y);
+        RelativeMoveInput = Camera.main.transform.TransformDirection(MoveCalc);
+
         //Chucked into MoveCalc for Final Game Movement
-        MoveCalc = new Vector3(RelativeMoveInput.x, MoveCalc.y, RelativeMoveInput.z);
-        
+
+
         //FIGURE OUT HOW TO LERP ONLY HORIZONTALS
         //MoveCalc = Vector3.Lerp(MoveCalc, new Vector3(AbsoluteMoveInput.x, MoveCalc.y, AbsoluteMoveInput.y), Time.deltaTime);
         //MoveCalc = new Vector3(AbsoluteMoveInput.x, MoveCalc.y, AbsoluteMoveInput.y);
     }
 
 
-    /// <summary>
     /// On Jump Executes When the Jump Button is Pressed 
-    /// </summary>
     /// Makes the Velocity equal to that of the predetermined Jump Power.
     public void OnJump(InputValue input)
     {
