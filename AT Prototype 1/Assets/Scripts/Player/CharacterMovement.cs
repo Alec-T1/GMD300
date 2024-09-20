@@ -9,10 +9,13 @@ public class CharacterMovement : MonoBehaviour
     CharacterController controller;
     Vector2 AbsoluteMoveInput = Vector2.zero;
     Vector3 RelativeMoveInput = Vector3.zero;
+    Vector3 desiredHorizontalVelocity = Vector3.zero;
+    Vector3 currentHorizontalVelocity = Vector3.zero;
     Vector3 MoveCalc = Vector3.zero;
     Vector3 HorizontalMoveCalc = Vector3.zero;
     Vector3 FinalMovement = Vector3.zero;
     public float speed;
+    public float MovementAcceleration = 10.0f;
 
     bool Grounded=false;
     public float gravity = -9.81f;
@@ -42,6 +45,7 @@ public class CharacterMovement : MonoBehaviour
     {
         Debug.DrawRay(transform.position, new Vector3(AbsoluteMoveInput.x, 0, AbsoluteMoveInput.y), Color.red);
         Debug.DrawRay(transform.position, RelativeMoveInput, Color.blue);
+        ProcessHorizontalVelocity();
         ApplyGravity();
         ApplyMovement();
         
@@ -51,21 +55,23 @@ public class CharacterMovement : MonoBehaviour
 
     private void ProcessHorizontalVelocity()
     {
-        HorizontalMoveCalc = new Vector3(RelativeMoveInput.x, 0, RelativeMoveInput.y);
-        //HorizontalMoveCalc = Vector3.Lerp(HorizontalMoveCalc, MoveCalc, Time.deltaTime);
+        //Get input based on Camera Direction
+        RelativeMoveInput = Camera.main.transform.TransformDirection(new Vector3(AbsoluteMoveInput.x, 0, AbsoluteMoveInput.y));
+        RelativeMoveInput.y = 0;
+        RelativeMoveInput = RelativeMoveInput.normalized;
+
+        desiredHorizontalVelocity = RelativeMoveInput;
+
+        //Calculate Acceleration
+        currentHorizontalVelocity = Vector3.Lerp(currentHorizontalVelocity, desiredHorizontalVelocity, MovementAcceleration * Time.deltaTime);
     }
+
     public void ApplyMovement()
     {
-        //FinalMovement = new Vector3(MoveCalc.x, MoveCalc.y, MoveCalc.z);
+        FinalMovement = new Vector3(currentHorizontalVelocity.x, FinalMovement.y, currentHorizontalVelocity.z);
         //applies gravity for jump
-        RelativeMoveInput.y = velocity;
-
-
-
-        RelativeMoveInput = RelativeMoveInput.normalized * RelativeMoveInput.magnitude;
-        Debug.Log(RelativeMoveInput);
-        //Movement
-        controller.Move(RelativeMoveInput * speed * Time.deltaTime);
+        FinalMovement.y = velocity;
+        controller.Move(FinalMovement * Time.deltaTime);
     }
 
     public void ApplyGravity()
@@ -85,16 +91,6 @@ public class CharacterMovement : MonoBehaviour
     {
         //Raw Input
         AbsoluteMoveInput = input.Get<Vector2>();
-        //Converted to Local Space
-        MoveCalc = new Vector3(AbsoluteMoveInput.x, 0, AbsoluteMoveInput.y);
-        RelativeMoveInput = Camera.main.transform.TransformDirection(MoveCalc);
-
-        //Chucked into MoveCalc for Final Game Movement
-
-
-        //FIGURE OUT HOW TO LERP ONLY HORIZONTALS
-        //MoveCalc = Vector3.Lerp(MoveCalc, new Vector3(AbsoluteMoveInput.x, MoveCalc.y, AbsoluteMoveInput.y), Time.deltaTime);
-        //MoveCalc = new Vector3(AbsoluteMoveInput.x, MoveCalc.y, AbsoluteMoveInput.y);
     }
 
 

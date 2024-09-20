@@ -52520,10 +52520,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2384c2c03de1ebf41aaaef99aa822aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7.5
+  MovementAcceleration: 10
   gravity: -9.81
   gravitymultiplier: 0.3
-  JumpPower: 3
+  JumpPower: 2
 --- !u!54 &1033975272
 Rigidbody:
   m_ObjectHideFlags: 0
