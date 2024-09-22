@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gem
   - SoundController
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

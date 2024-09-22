@@ -59,7 +59,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
   methodsToPreserve: []
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/Level2.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -907,7 +907,7 @@ ScriptsOnlyBuild:
     className: UnityOnTransformChildrenChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 52652bd7c8e560873e88eff3d81e7b9e
+      Hash: 9a11f892767c413f62c77640d9651245
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CharacterMovement
@@ -1549,5 +1549,5 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/aTurgeon/Desktop/AT Build/AT Prototype 1.exe
+  - Assets/Scenes/Level2.unity
+  playerPath: C:/Users/marct/Desktop/Build Hold/AT Prototype 1.exe

@@ -366,6 +366,7 @@
 "Assets/Scripts/Gem/Gem Script.cs"
 "Assets/Scripts/Gem/GemUIUpdate.cs"
 "Assets/Scripts/Kill Plane/KillPlane.cs"
+"Assets/Scripts/Moving Platform/MovingPlatform.cs"
 "Assets/Scripts/Player/CharacterMovement.cs"
 "Assets/Scripts/Sound Manager/SoundManager.cs"
 -langversion:9.0

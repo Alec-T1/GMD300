@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class KillPlane : MonoBehaviour
 {
+    private GameObject GameController;
+    private string CurrentScene;
+
     // Start is called before the first frame update
     void Start()
     {
+        GameController = GameObject.FindGameObjectWithTag("GameController");
+        //CurrentScene = GameController.GetComponent<GameManager>().returnSceneName();
         
     }
 
@@ -22,7 +27,7 @@ public class KillPlane : MonoBehaviour
         if (other.tag == "Player")
         {
             //Debug.Log("Scene Loader");
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene(GameController.GetComponent<GameManager>().returnSceneName());
         }
     }
 }

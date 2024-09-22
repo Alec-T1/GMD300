@@ -53,6 +53,8 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
+
+
     private void ProcessHorizontalVelocity()
     {
         //Get input based on Camera Direction
@@ -64,14 +66,16 @@ public class CharacterMovement : MonoBehaviour
 
         //Calculate Acceleration
         currentHorizontalVelocity = Vector3.Lerp(currentHorizontalVelocity, desiredHorizontalVelocity, MovementAcceleration * Time.deltaTime);
+        
     }
 
     public void ApplyMovement()
     {
+        
         FinalMovement = new Vector3(currentHorizontalVelocity.x, FinalMovement.y, currentHorizontalVelocity.z);
         //applies gravity for jump
         FinalMovement.y = velocity;
-        controller.Move(FinalMovement * Time.deltaTime);
+        controller.Move(FinalMovement * speed * Time.deltaTime);
     }
 
     public void ApplyGravity()
@@ -102,6 +106,24 @@ public class CharacterMovement : MonoBehaviour
         velocity = JumpPower;
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+
+        
+        if (collision.other.tag == "MovingPlatform")
+        {
+            
+            isOnMovingPlatform(collision.collider);
+        }
+    }
+
+    private void isOnMovingPlatform(Collider other)
+    {
+        Debug.Log("working platform");
+        //FinalMovement.x=other.transform.position.x;
+        //FinalMovement.z=other.transform.position.z;
+        FinalMovement = other.transform.position;
+    }
 
 
 }
