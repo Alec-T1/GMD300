@@ -109,6 +109,7 @@
 -define:ENABLE_UNITY_COLLECTIONS_CHECKS
 -define:ENABLE_BURST_AOT
 -define:UNITY_TEAM_LICENSE
+-define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -366,8 +367,10 @@
 "Assets/Scripts/Gem/Gem Script.cs"
 "Assets/Scripts/Gem/GemUIUpdate.cs"
 "Assets/Scripts/Kill Plane/KillPlane.cs"
+"Assets/Scripts/Light/LightScript.cs"
 "Assets/Scripts/Moving Platform/MovingPlatform.cs"
 "Assets/Scripts/Player/CharacterMovement.cs"
+"Assets/Scripts/Pressure Plate/Pressure Plate.cs"
 "Assets/Scripts/Sound Manager/SoundManager.cs"
 -langversion:9.0
 /deterministic
