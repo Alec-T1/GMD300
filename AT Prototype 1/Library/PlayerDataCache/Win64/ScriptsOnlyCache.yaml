@@ -3,10 +3,14 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - CameraManagement
     - CharacterMovement
+    - ExitPortal
     - GameManager
     - GemScript
     - GemUIUpdate
     - KillPlane
+    - LightScript
+    - MovingPlatform
+    - PressurePlate
     - SoundManager
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
@@ -59,6 +63,140 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
   methodsToPreserve: []
   sceneClasses:
+    Assets/Scenes/End.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    Assets/Scenes/Level1.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1634}
+    - Class: 114
+      Script: {instanceID: 2236}
+    - Class: 114
+      Script: {instanceID: 2486}
+    - Class: 114
+      Script: {instanceID: 2806}
+    - Class: 114
+      Script: {instanceID: 2882}
+    - Class: 114
+      Script: {instanceID: 2956}
+    - Class: 114
+      Script: {instanceID: 3120}
+    - Class: 114
+      Script: {instanceID: 3224}
+    - Class: 114
+      Script: {instanceID: 3254}
+    - Class: 114
+      Script: {instanceID: 3986}
+    - Class: 114
+      Script: {instanceID: 4246}
+    - Class: 114
+      Script: {instanceID: 4442}
+    - Class: 114
+      Script: {instanceID: 5506}
+    - Class: 114
+      Script: {instanceID: 5648}
+    - Class: 114
+      Script: {instanceID: 6262}
+    - Class: 114
+      Script: {instanceID: 6308}
+    - Class: 114
+      Script: {instanceID: 6546}
+    - Class: 114
+      Script: {instanceID: 6612}
+    - Class: 114
+      Script: {instanceID: 6648}
+    - Class: 114
+      Script: {instanceID: 6680}
+    - Class: 114
+      Script: {instanceID: 7264}
+    - Class: 114
+      Script: {instanceID: 7344}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 143
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
     Assets/Scenes/Level2.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -101,39 +239,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2236}
     - Class: 114
-      Script: {instanceID: 2802}
+      Script: {instanceID: 2358}
     - Class: 114
-      Script: {instanceID: 2878}
+      Script: {instanceID: 2486}
     - Class: 114
-      Script: {instanceID: 2952}
+      Script: {instanceID: 2806}
     - Class: 114
-      Script: {instanceID: 3116}
+      Script: {instanceID: 2882}
     - Class: 114
-      Script: {instanceID: 3248}
+      Script: {instanceID: 2956}
     - Class: 114
-      Script: {instanceID: 3980}
+      Script: {instanceID: 3120}
     - Class: 114
-      Script: {instanceID: 4240}
+      Script: {instanceID: 3254}
     - Class: 114
-      Script: {instanceID: 4436}
+      Script: {instanceID: 3986}
     - Class: 114
-      Script: {instanceID: 5500}
+      Script: {instanceID: 4246}
     - Class: 114
-      Script: {instanceID: 5642}
+      Script: {instanceID: 4442}
     - Class: 114
-      Script: {instanceID: 6256}
+      Script: {instanceID: 5506}
     - Class: 114
-      Script: {instanceID: 6302}
+      Script: {instanceID: 5648}
     - Class: 114
-      Script: {instanceID: 6540}
+      Script: {instanceID: 6262}
     - Class: 114
-      Script: {instanceID: 6606}
+      Script: {instanceID: 6308}
     - Class: 114
-      Script: {instanceID: 6642}
+      Script: {instanceID: 6546}
     - Class: 114
-      Script: {instanceID: 6674}
+      Script: {instanceID: 6612}
     - Class: 114
-      Script: {instanceID: 7258}
+      Script: {instanceID: 6648}
+    - Class: 114
+      Script: {instanceID: 6680}
+    - Class: 114
+      Script: {instanceID: 7264}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -259,7 +401,7 @@ ScriptsOnlyBuild:
     className: CinemachineCollider
   - hash:
       serializedVersion: 2
-      Hash: e47d77dff9f7fd0f54480d10a98b411f
+      Hash: 7a87c0748b138cbbb9a24bd331b98279
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GameManager
@@ -275,6 +417,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnTriggerEnterMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 598d3e7fcdf2b00ce229db0767499f3a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MovingPlatform
   - hash:
       serializedVersion: 2
       Hash: 0c6de72eaf8c1070da824268c4bfad9d
@@ -311,6 +459,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnJointBreakMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 311cb1e6ad46210c2e5eac7318c260a5
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ExitPortal
   - hash:
       serializedVersion: 2
       Hash: 1ab136900c0edaeeb49424c852595030
@@ -437,6 +591,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnInputFieldEndEditMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 836ab976a4f778f32cbe94645874dddd
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: LightScript
   - hash:
       serializedVersion: 2
       Hash: bf40c7a9dc15bc219687c9838aa9b41f
@@ -1195,6 +1355,12 @@ ScriptsOnlyBuild:
     className: CinemachineImpulseSource
   - hash:
       serializedVersion: 2
+      Hash: bcaa6c82844972991f01603904b9cdc4
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PressurePlate
+  - hash:
+      serializedVersion: 2
       Hash: 672716ae97f6ddb615fa5ac3ec9da349
     assemblyName: UnityEngine.TestRunner
     namespaceName: UnityEngine.TestTools
@@ -1549,5 +1715,7 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
+  - Assets/Scenes/Level1.unity
   - Assets/Scenes/Level2.unity
+  - Assets/Scenes/End.unity
   playerPath: C:/Users/marct/Desktop/Build Hold/AT Prototype 1.exe

@@ -8,17 +8,6 @@ public class GemScript : MonoBehaviour
     private GameObject GameController;
     private GameObject SoundController;
 
-    void Awake()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
 
     private void FixedUpdate()
     {
@@ -29,19 +18,23 @@ public class GemScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            //
+            
             
             GameController = GameObject.FindGameObjectWithTag("GameController");
             SoundController = GameObject.FindGameObjectWithTag("SoundController");
-            Debug.Log("collided");
+            //Debug.Log("collided");
+            //Tell the Game Manager that a Gem has been Collected
             GameController.GetComponent<GameManager>().GemCollect();
+            //Tell the Sound Manager to play the Gem Collected sound
             SoundController.GetComponent<SoundManager>().GemCollect();
+            //Destroy this Gem so that it cannot be collected again
             Destroy(this.gameObject);
         }
     }
 
     void RotateGem()
     {
+        //Rotate the Gem constantly as a Primitive Animation
         this.transform.eulerAngles = new Vector3(this.transform.eulerAngles.x,this.transform.eulerAngles.y ,this.transform.eulerAngles.z+1f);
     }
 }

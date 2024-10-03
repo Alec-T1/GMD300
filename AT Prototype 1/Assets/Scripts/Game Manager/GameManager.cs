@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-
+    public GameObject ExitPortal;
     private int Gems;
     private int GemsCollected;
     private string SceneName;
@@ -22,16 +22,21 @@ public class GameManager : MonoBehaviour
         SceneName = SceneManager.GetActiveScene().name;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void GemCollect()
     {
         GemsCollected++;
         Debug.Log(GemsCollected);
+        if (GemsCollected ==  Gems)
+        {
+            OpenExit();
+        }
+    }
+
+    public void OpenExit()
+    {
+        ExitPortal.SetActive(true);
     }
 
     public int returnTotalGems()

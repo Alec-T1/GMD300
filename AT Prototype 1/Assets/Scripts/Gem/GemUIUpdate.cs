@@ -19,6 +19,7 @@ public class GemUIUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Update the HUD to have the correct number of Collected Gems, and the Total Gems on the field
         newText = "Gems: " + GameManager.GetComponent<GameManager>().returnGemsCollected().ToString() + "/" + GameManager.GetComponent<GameManager>().returnTotalGems().ToString();
         txt.text = newText;
     }

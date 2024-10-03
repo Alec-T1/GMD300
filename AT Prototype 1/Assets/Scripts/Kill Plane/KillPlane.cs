@@ -9,24 +9,18 @@ public class KillPlane : MonoBehaviour
     private string CurrentScene;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GameController = GameObject.FindGameObjectWithTag("GameController");
-        //CurrentScene = GameController.GetComponent<GameManager>().returnSceneName();
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter (Collider other)
     {
         if (other.tag == "Player")
         {
-            //Debug.Log("Scene Loader");
+            //If the player enters the Kill Plane, reload the current scene
             SceneManager.LoadScene(GameController.GetComponent<GameManager>().returnSceneName());
         }
     }

@@ -14,14 +14,10 @@ public class SoundManager : MonoBehaviour
         audioData = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void GemCollect()
     {
+        //Play Gem Collected Sound upon Gem being collected
         audioData.PlayOneShot(GemCollected, 1);
     }
 }

@@ -10,17 +10,17 @@ public class MovingPlatform : MonoBehaviour
 
     public GameObject Pos1;
     public GameObject Pos2;
-    // Start is called before the first frame update
+    
     void Awake()
     {
         Pos1T = transform.TransformPoint(Pos1.transform.position);
         Pos2T = transform.TransformPoint(Pos2.transform.position);
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    void FixedUpdate()
     {
-
+        //If the Platform is at Pos2, start moving in the opposite direction to Pos1
         if (atPos2)
         {
             if (Vector3.Distance(this.transform.position, Pos1.transform.position) < 0.1f)
@@ -33,6 +33,7 @@ public class MovingPlatform : MonoBehaviour
                 this.transform.position = Vector3.MoveTowards(this.transform.position, Pos1.transform.position, .1f);
             }
         }
+        //If the Platform is at the Pos1, start moving in the opposite direction to Pos2
         else
         {
             if (Vector3.Distance(this.transform.position, Pos2.transform.position) < 0.1f)
