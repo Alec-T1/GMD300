@@ -21,9 +21,9 @@ public class CharacterMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float gravitymultiplier = 3;
     float velocity;
-
     public float JumpPower = 4;
-    
+
+    public Animator animator;
     
 
     void Awake()
@@ -102,6 +102,7 @@ public class CharacterMovement : MonoBehaviour
     /// Makes the Velocity equal to that of the predetermined Jump Power.
     public void OnJump(InputValue input)
     {
+        animator.SetTrigger("ShowHealth");
         if (!controller.isGrounded) return;
         velocity = JumpPower;
     }
