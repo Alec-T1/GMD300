@@ -17,6 +17,10 @@ public class CharacterMovement : MonoBehaviour
     public float speed;
     public float MovementAcceleration = 10.0f;
 
+    public GameObject Bullet;
+    public GameObject BulletSpawn;
+    GameObject BulletInstance;
+
     bool Grounded=false;
     public float gravity = -9.81f;
     public float gravitymultiplier = 3;
@@ -102,9 +106,15 @@ public class CharacterMovement : MonoBehaviour
     /// Makes the Velocity equal to that of the predetermined Jump Power.
     public void OnJump(InputValue input)
     {
-        animator.SetTrigger("ShowHealth");
+        //animator.SetTrigger("ShowHealth");
+       
         if (!controller.isGrounded) return;
         velocity = JumpPower;
+    }
+
+    void OnShoot(InputValue input)
+    {
+        BulletInstance = Instantiate(Bullet, BulletSpawn.transform.position, Quaternion.identity);
     }
 
     private void OnCollisionStay(Collision collision)
