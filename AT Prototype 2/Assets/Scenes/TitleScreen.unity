@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 287187786}
   - component: {fileID: 287187785}
   - component: {fileID: 287187784}
+  - component: {fileID: 287187789}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -364,7 +365,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 287187787}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: c188ea39073c5df48a89fda15170a753, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &287187787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +416,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287187782}
   m_CullTransparentMesh: 1
+--- !u!114 &287187789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287187782}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c188ea39073c5df48a89fda15170a753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Start: {fileID: 0}
 --- !u!1 &509372814
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +780,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Start Game
 --- !u!222 &1951624479
 CanvasRenderer:
   m_ObjectHideFlags: 0
