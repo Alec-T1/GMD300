@@ -12,6 +12,7 @@ public class BadGuy : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject CurrentTarget;
     private int CurrentWaypoint = 0;
+    private int Health = 4;
     private enum BadGuyStates
     {
         Patrol,
@@ -31,7 +32,13 @@ public class BadGuy : MonoBehaviour
 
     private void Update()
     {
-        switch(currentState) {
+
+        if (Health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
+        switch (currentState) {
             case BadGuyStates.Patrol:
                 Patrol();
                 break;
@@ -91,6 +98,12 @@ public class BadGuy : MonoBehaviour
             CurrentTarget = null;
             SwitchState(BadGuyStates.Patrol);
         }
+    }
+
+
+    public void OnHit()
+    {
+        Health--;
     }
 
 }
