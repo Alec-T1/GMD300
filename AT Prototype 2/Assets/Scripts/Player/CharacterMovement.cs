@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -52,6 +53,11 @@ public class CharacterMovement : MonoBehaviour
         if (PlayerHealth <= 0)
         {
             Debug.Log("DEAD");
+            SceneManager.LoadScene("TitleScreen");
+        }
+        if (PlayerHealth == 1)
+        {
+
         }
 
         Debug.DrawRay(transform.position, new Vector3(AbsoluteMoveInput.x, 0, AbsoluteMoveInput.y), Color.red);
@@ -138,12 +144,13 @@ public class CharacterMovement : MonoBehaviour
     public void OnEnemyHit()
     {
         PlayerHealth--;
-        Debug.Log(PlayerHealth);
+        //Debug.Log(PlayerHealth);
+
     }
 
     private void isOnMovingPlatform(Collider other)
     {
-        Debug.Log("working platform");
+        //Debug.Log("working platform");
         //FinalMovement.x=other.transform.position.x;
         //FinalMovement.z=other.transform.position.z;
         FinalMovement = other.transform.position;

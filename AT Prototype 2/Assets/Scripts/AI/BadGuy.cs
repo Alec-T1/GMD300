@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class BadGuy : MonoBehaviour
 {
-    public Transform[] waypoints; 
+    private Transform[] waypoints = new Transform[4];
+    private GameObject[] BadGuySpawns;
+    private GameObject[] TempWaypoints; 
     private NavMeshAgent agent;
     private GameObject CurrentTarget;
     private int CurrentWaypoint = 0;
@@ -23,8 +26,18 @@ public class BadGuy : MonoBehaviour
 
     private void Awake()
     {
+      //  BadGuySpawns = GameObject.FindGameObjectsWithTag("BadGuySpawn");
+      //  this.gameObject.transform.position = BadGuySpawns[ (int)Random.Range(0, 8) ].transform.position;
+        TempWaypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        for (int i = 0; i< TempWaypoints.Length; i++)
+        {
+            //Debug.Log(waypoints[i].name);
+            waypoints[i]= TempWaypoints[i].transform;
+        }
+        
+         
         agent = GetComponent<NavMeshAgent>();
-        agent.Warp(waypoints[CurrentWaypoint].position);
+        //agent.Warp(waypoints[CurrentWaypoint].position);
         CurrentWaypoint++;
         agent.SetDestination(waypoints[CurrentWaypoint].position);
     }

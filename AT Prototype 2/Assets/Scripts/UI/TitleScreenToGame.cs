@@ -5,20 +5,19 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class TitleScreenToGame : MonoBehaviour
 {
-    public Button Start;
+    public Button StartB;
     // Start is called before the first frame update
 
-
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        StartB = GetComponent<Button>();
+        StartB.onClick.AddListener(TaskOnClick);
     }
 
-    public void OnClick()
+
+    void TaskOnClick()
     {
-        Debug.Log("Switches to Game");
-        SceneManager.LoadScene("OutdoorScene");
-        
+        SceneManager.LoadScene("OutdoorsScene");
+        Debug.Log("You have clicked the button!");
     }
 }
