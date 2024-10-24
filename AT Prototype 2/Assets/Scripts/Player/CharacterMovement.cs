@@ -22,12 +22,13 @@ public class CharacterMovement : MonoBehaviour
     GameObject BulletInstance;
 
     bool Grounded=false;
+    public int PlayerHealth = 3;
     public float gravity = -9.81f;
     public float gravitymultiplier = 3;
     float velocity;
     public float JumpPower = 4;
 
-    public Animator animator;
+    
     
 
     void Awake()
@@ -47,6 +48,12 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
+        //Debug.Log(PlayerHealth);
+        if (PlayerHealth <= 0)
+        {
+            Debug.Log("DEAD");
+        }
+
         Debug.DrawRay(transform.position, new Vector3(AbsoluteMoveInput.x, 0, AbsoluteMoveInput.y), Color.red);
         Debug.DrawRay(transform.position, RelativeMoveInput, Color.blue);
         ProcessHorizontalVelocity();
@@ -106,7 +113,7 @@ public class CharacterMovement : MonoBehaviour
     /// Makes the Velocity equal to that of the predetermined Jump Power.
     public void OnJump(InputValue input)
     {
-        animator.SetTrigger("ShowHealth");
+        
        
         if (!controller.isGrounded) return;
         velocity = JumpPower;
@@ -126,6 +133,12 @@ public class CharacterMovement : MonoBehaviour
             
             isOnMovingPlatform(collision.collider);
         }
+    }
+
+    public void OnEnemyHit()
+    {
+        PlayerHealth--;
+        Debug.Log(PlayerHealth);
     }
 
     private void isOnMovingPlatform(Collider other)

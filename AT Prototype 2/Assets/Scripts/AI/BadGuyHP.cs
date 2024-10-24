@@ -7,6 +7,7 @@ public class BadGuyHP : MonoBehaviour
 
 
     public GameObject BadGuy;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,9 @@ public class BadGuyHP : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             BadGuy.GetComponent<BadGuy>().OnHit();
+            
         }
+
     }
 
 }
